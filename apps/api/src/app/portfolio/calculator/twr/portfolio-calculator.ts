@@ -180,11 +180,11 @@ export class TWRPortfolioCalculator extends PortfolioCalculator {
     let valueAtStartDateWithCurrencyEffect: Big;
 
     // Clone orders to keep the original values in this.orders
-    let orders: PortfolioOrderItem[] = cloneDeep(this.activities).filter(
+    let orders: PortfolioOrderItem[] = cloneDeep(this.activities.filter(
       ({ SymbolProfile }) => {
         return SymbolProfile.symbol === symbol;
       }
-    );
+    ));
 
     if (orders.length <= 0) {
       return {
